@@ -13,8 +13,7 @@ public class SessaoModel{
     private long codigo;
     private ArrayList<TelespectadorModel> telespectadores = new ArrayList<TelespectadorModel>();
 
-    public SessaoModel(ArrayList<TelespectadorModel> telespectadores) {
-        this.telespectadores = telespectadores;
+    public SessaoModel(ArrayList<TelespectadorModel> telespectadores) {telespectadores = telespectadores;
     }
 
     @Override
