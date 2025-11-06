@@ -1,5 +1,6 @@
 package br.com.EuzebioZ.cinema.Telespectador;
 
+import br.com.EuzebioZ.cinema.Sessao.SessaoModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +11,9 @@ public class TelespectadorModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long codigo;
+    @ManyToOne
+    @JoinColumn(name="sessao_id")
+    private SessaoModel sessao;
 
     public TelespectadorModel() {}
 

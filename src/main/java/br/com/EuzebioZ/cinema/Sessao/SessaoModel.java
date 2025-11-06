@@ -11,9 +11,12 @@ public class SessaoModel{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long codigo;
-    private ArrayList<TelespectadorModel> telespectadores = new ArrayList<TelespectadorModel>();
 
-    public SessaoModel(ArrayList<TelespectadorModel> telespectadores) {telespectadores = telespectadores;
+    @OneToMany(mappedBy = "sessao")
+    private ArrayList<TelespectadorModel> telespectadores;
+
+    public SessaoModel() {
+        this.telespectadores = new ArrayList<TelespectadorModel>();
     }
 
     @Override
