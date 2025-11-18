@@ -12,22 +12,17 @@ import lombok.ToString;
 @Data
 public class TelespectadorModel{
     private String nome;
+    @Id
     @Column(unique=true)
     private String cpf;
 
-    @Column(unique = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long codigo;
-
     @ManyToOne
     @JoinColumn(name="sessao_id")
-        private SessaoModel sessao;
+    private SessaoModel sessao;
 
     @Override
     public String toString(){
-        return "Codiogo: "+this.codigo+
-        "Nome: "+this.nome+
-        "CPF: "+ this.cpf;
+        return "[Nome: "+this.nome+
+        "CPF: "+ this.cpf+"]";
     }
 }

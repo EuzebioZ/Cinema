@@ -15,7 +15,7 @@ public class SessaoModel{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(unique=true)
-    private long codigo;
+    private Long codigo;
 
     @OneToMany(mappedBy = "sessao")
     private ArrayList<TelespectadorModel> telespectadores;
