@@ -1,15 +1,18 @@
 package br.com.EuzebioZ.cinema.Sessao;
 
 import br.com.EuzebioZ.cinema.Telespectador.TelespectadorModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "tb_sessao")
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class SessaoModel{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +21,8 @@ public class SessaoModel{
     private Long codigo;
 
     @OneToMany(mappedBy = "sessao")
-    private ArrayList<TelespectadorModel> telespectadores;
+    @JsonIgnore
+    private List<TelespectadorModel> telespectadores;
 
     @Override
     public String toString(){
